@@ -16,14 +16,34 @@ Welcome to the [Ubersidad](https://ubersidad.herokuapp.com) API! You can use our
 
 # Authentication
 
-Ubersidad uses token authentication to allow access to some parts of the API (some parts are publicly available). A token is automatically created for your user account when you create an account with [Ubersidad] (http://ubersidad.herokuapp.com/).
+Ubersidad uses token authentication to allow access to some parts of the API (some parts are publicly available). A token is created by the following request:
+
+
+### HTTP Request
+
+`POST http://ubersidad.herokuapp.com/api/v1/user/token`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+email | Email address associated with the user's Ubersidad account
+password | Password associated with the user's Ubersidad account
+
+> The HTTP Request returns JSON structured like this:
+
+```json
+{
+  "token": "bd2310d4af2f21f5fc684491c78c56891dc6ef84def6e59bb433bb49dc5fbb14201daaf374aaa1b57d85e2565348266e4165eeeac154d2617932301b74c6d3ff"
+}
+```
 
 Ubersidad expects the token to be included in all API requests to the server in a header that looks like the following:
 
 `Authorization: Token token=mytoken`
 
 <aside class="notice">
-You must replace <code>mytoken</code> with your personal token which is available in your Ubersidad user profile.
+You must replace <code>mytoken</code> with your personal token which you can obtain using the request above.
 </aside>
 
 # Campuses
@@ -411,16 +431,16 @@ ID | The ID of the route to retrieve
       "id": "1",
       "type": "users",
       "attributes": {
-        "first-name": "Katherine",
-        "last-names": "Burckin"
+        "first-name": "Camila",
+        "last-names": "Parra"
       }
     },
     {
       "id": "2",
       "type": "users",
       "attributes": {
-        "first-name": "Jonathan",
-        "last-names": "Burckin"
+        "first-name": "Javier",
+        "last-names": "Romero Rojas"
       }
     },
     {
@@ -544,16 +564,16 @@ Authentication is required for this endpoint.
       "id": "1",
       "type": "users",
       "attributes": {
-        "first-name": "Katherine",
-        "last-names": "Burckin"
+        "first-name": "Camila",
+        "last-names": "Parra"
       }
     },
     {
       "id": "2",
       "type": "users",
       "attributes": {
-        "first-name": "Jonathan",
-        "last-names": "Burckin"
+        "first-name": "Javier",
+        "last-names": "Romero Rojas"
       }
     }
   ]
@@ -606,16 +626,16 @@ Authentication is required for this endpoint as it includes information about sp
       "id": "2",
       "type": "users",
       "attributes": {
-        "first-name": "Jonathan",
-        "last-names": "Burckin"
+        "first-name": "Javier",
+        "last-names": "Romero Rojas"
       }
     },
     {
       "id": "1",
       "type": "users",
       "attributes": {
-        "first-name": "Katherine",
-        "last-names": "Burckin"
+        "first-name": "Camila",
+        "last-names": "Parra"
       }
     }
   ]
@@ -676,8 +696,8 @@ ID | The ID of the trip to retrieve
       "id": "1",
       "type": "users",
       "attributes": {
-        "first-name": "Katherine",
-        "last-names": "Burckin"
+        "first-name": "Camila",
+        "last-names": "Parra"
       }
     },
     {
@@ -740,8 +760,8 @@ Authentication is required for this endpoint.
       "id": "2",
       "type": "users",
       "attributes": {
-        "first-name": "Jonathan",
-        "last-names": "Burckin"
+        "first-name": "Javier",
+        "last-names": "Romero Rojas"
       }
     },
     {
