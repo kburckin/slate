@@ -122,14 +122,43 @@
 
 <h1 id="authentication">Authentication</h1>
 
-<p>Ubersidad uses token authentication to allow access to some parts of the API (some parts are publicly available). A token is automatically created for your user account when you create an account with <a href="http://ubersidad.herokuapp.com/">Ubersidad</a>.</p>
+<p>Ubersidad uses token authentication to allow access to some parts of the API (some parts are publicly available). A token is created by the following request:</p>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://ubersidad.herokuapp.com/api/v1/user/token</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Email address associated with the user&rsquo;s Ubersidad account</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Password associated with the user&rsquo;s Ubersidad account</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The HTTP Request returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bd2310d4af2f21f5fc684491c78c56891dc6ef84def6e59bb433bb49dc5fbb14201daaf374aaa1b57d85e2565348266e4165eeeac154d2617932301b74c6d3ff"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Ubersidad expects the token to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code class="prettyprint">Authorization: Token token=mytoken</code></p>
 
 <aside class="notice">
-You must replace <code>mytoken</code> with your personal token which is available in your Ubersidad user profile.
+You must replace <code>mytoken</code> with your personal token which you can obtain using the request above.
 </aside>
 
 <h1 id="campuses">Campuses</h1>
@@ -527,16 +556,16 @@ No authentication is required for this endpoint as routes are not associated wit
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Katherine"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camila"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parra"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jonathan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Javier"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Romero Rojas"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -658,16 +687,16 @@ Authentication is required for this endpoint.</p>
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Katherine"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camila"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parra"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jonathan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Javier"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Romero Rojas"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -719,16 +748,16 @@ Authentication is required for this endpoint as it includes information about sp
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jonathan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Javier"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Romero Rojas"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Katherine"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camila"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parra"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
@@ -794,8 +823,8 @@ Authentication is required for this endpoint as it includes information about sp
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Katherine"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camila"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parra"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -857,8 +886,8 @@ Authentication is required for this endpoint.</p>
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jonathan"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Burckin"</span><span class="w">
+        </span><span class="nt">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Javier"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last-names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Romero Rojas"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
